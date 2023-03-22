@@ -2,37 +2,12 @@ include "biblio-standoc.rnc" {
 
 BibDataExtensionType =
   attribute schema-version { text }?,
-        doctype, docsubtype?, editorialgroup, ics*, structuredidentifier,
+        doctype, editorialgroup, ics*, structuredidentifier,
         stagename?
 
-bdate = element date {
-  attribute type { ( BibliographicDateType | text ) },
-  (
-(
-element from { ISO8601Date },
-element to { ISO8601Date }?
-) |
-element on { ISO8601Date | "--" | "–" }
-)
-
-}
-
-organization =
-  element organization {
-    orgname+, abbreviation?, uri?, org-identifier*, contact*,
-    technical-committee?, subcommittee?, workgroup?, secretariat?
-}
-
 DocumentType =
-     "british-standard" | "draft-for-development" | "published-document" |
-     "privately-subscribed-standard" | "publicly-available-specification" |
-     "flex-standard" | "international-standard" | "technical-specification" |
-     "technical-report" | "guide" | "international-workshop-agreement" |
-     "industry-technical-agreement" | "standard" | "european-workshop-agreement" |
-     "fast-track-standard" | "expert-commentary"
+    "japanese-industrial-standard" | "technical-report" | "technical-specification" | "amendment"
 
-DocumentSubtype = "specification" | "method-of-test" | "method-of-specifying" |
-                  "vocabulary" | "code-of-practice"
 
 structuredidentifier =
   element structuredidentifier {
@@ -44,15 +19,10 @@ editorialgroup = element editorialgroup { ISOProjectGroup }
 
 }
 
-updates_document_type = element updates-document-type { DocumentType }
-
 ISOProjectGroup =
   agency*, technical-committee+, subcommittee*, workgroup*, secretariat?
-approvalgroup = element approvalgroup { ISOProjectGroup }
 
 agency = element agency { text }
-
-horizontal = element horizontal { xsd:boolean }
 
 documentnumber =
   element project-number {
@@ -83,5 +53,4 @@ stagename = element stagename {
   text
 }
 
-coverimages = element coverimages { image+ }
 
