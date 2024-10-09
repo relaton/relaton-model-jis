@@ -2,7 +2,7 @@ include "biblio-standoc.rnc" {
 
 BibDataExtensionType =
   attribute schema-version { text }?,
-        doctype, editorialgroup, ics*, structuredidentifier,
+        doctype, editorialgroup, flavor, ics*, structuredidentifier,
         stagename?
 
 DocumentType =
