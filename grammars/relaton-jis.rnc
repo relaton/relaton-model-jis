@@ -1,9 +1,5 @@
 include "biblio-standoc.rnc" {
 
-BibDataExtensionType &=
-        ## Human-readable name of the stage of publication, corresponding to the numeric stage code given in `/bibdata/status/stage`
-        stagename?
-
 DocumentType =
     "japanese-industrial-standard" | "technical-report" | "technical-specification" | "amendment"
 
@@ -17,6 +13,11 @@ structuredidentifier =
 editorialgroup = element editorialgroup { ISOProjectGroup }
 
 }
+
+BibDataExtensionType &=
+        ## Human-readable name of the stage of publication, corresponding to the numeric stage code given in `/bibdata/status/stage`
+        stagename?
+
 
 ISOProjectGroup =
   agency*, technical-committee+, subcommittee*, workgroup*, secretariat?
