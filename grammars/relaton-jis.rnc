@@ -10,19 +10,12 @@ structuredidentifier =
     (documentnumber, tc-documentnumber? )
 }
 
-editorialgroup = element editorialgroup { ISOProjectGroup }
-
 }
 
 BibDataExtensionType &=
         ## Human-readable name of the stage of publication, corresponding to the numeric stage code given in `/bibdata/status/stage`
         stagename?
 
-
-ISOProjectGroup =
-  agency*, technical-committee+, subcommittee*, workgroup*, secretariat?
-
-agency = element agency { text }
 
 documentnumber =
   element project-number {
@@ -38,15 +31,6 @@ tc-documentnumber =
   element tc-document-number {
     xsd:int
    }
-
-subcommittee =
-  element subcommittee { IsoWorkgroup }
-
-workgroup =
-  element workgroup { IsoWorkgroup }
-
-secretariat =
-  element secretariat { text }
 
 stagename = element stagename {
   attribute abbreviation { text }?,
